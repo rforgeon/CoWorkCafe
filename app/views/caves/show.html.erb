@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="thumbnail">
+      <%= image_tag @cafe.image.url %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h3><%= @cafe.name %></h3>
+    <p><%= @cafe.address %><br>
+      <%= @cafe.city %>
+      <%= @cafe.state %>
+      <%= @cafe.zipcode %>
+    </p>
+    <p><%= @cafe.description %></p>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_cafe_path(@cafe), class: "btn btn-link" %>
+<%= link_to 'Back', caves_path, class: "btn btn-link" %>

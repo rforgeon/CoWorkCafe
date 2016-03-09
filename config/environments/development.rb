@@ -38,5 +38,6 @@ Rails.application.configure do
   #->Prelang
   GA.tracker = ""
 
-end
+  Paperclip.options[:command_path] = "/opt/ImageMagick/bin/"
 
+end

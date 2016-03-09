@@ -74,6 +74,6 @@ class OwnersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def owner_params
-      params.require(:owner).permit(:user_id, :address, :state, :city, :zipcode, :description, :rating)
+      params.require(:owner).permit(:user_id, :address, :state, :city, :zipcode, :description, :rating, :image)
     end
 end
