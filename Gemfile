@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
-
+ruby "2.0.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 # Use postgresql as the database for Active Record
-gem 'pg'
+#gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -53,9 +53,16 @@ gem 'bootstrap-sass', '3.3.5'
 gem 'bootstrap-sass-extras'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'pg'
 end
 
 group :test do
