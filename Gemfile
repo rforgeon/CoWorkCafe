@@ -29,6 +29,11 @@ gem 'spring',        group: :development
 #image uploader
 gem "paperclip", "~> 4.3"
 
+#image storage
+gem "paperclip-dropbox", ">= 1.1.7"
+
+gem "figaro"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
