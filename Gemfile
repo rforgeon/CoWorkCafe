@@ -32,6 +32,7 @@ gem "paperclip", "~> 4.3"
 #image storage
 gem "paperclip-dropbox", ">= 1.1.7"
 
+#hide information
 gem "figaro"
 
 # Use ActiveModel has_secure_password
