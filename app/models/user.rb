@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
         :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook]
 
+  validates :name, presence: true
+
   #->Prelang (user_login/devise)
   has_many :workers
   has_many :owners
