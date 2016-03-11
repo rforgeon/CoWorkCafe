@@ -1,10 +1,11 @@
 class CavesController < InheritedResources::Base
 
-
+  before_action :set_cafe, only: [:show, :edit, :update, :destroy]
   #->Prelang (scaffolding:rails/scope_to_user)
   before_filter :require_user_signed_in, only: [:new, :edit, :create, :update, :destroy]
+  before_filter :check_user, only: [:edit, :update, :destroy]
 
-  before_action :set_cafe, only: [:show, :edit, :update, :destroy]
+
 
   # GET /caves
   # GET /caves.json
@@ -79,4 +80,14 @@ private
   def cafe_params
     params.require(:cafe).permit(:user_id, :name, :description, :address, :city, :state, :zipcode, :image)
   end
+
+  def check_user
+    if current_user != @cafe.user
+      respond_to do |format|
+        format.html { redirect_to @cafe, alert: 'Sorry, only the cafe owner has access to this.' }
+        format.json { head :no_content }
+      end
+    end
+  end
+
 end
