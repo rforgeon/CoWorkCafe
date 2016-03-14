@@ -1,34 +1,46 @@
+
 <%- model_class = Cafe -%>
 <div class="page-header">
   <h1>Your Cafes</h1>
 </div>
 
-<div class="row">
-  <% @caves.each do |cafe| %>
-    <div class="col-md-3">
-      <div class="thumbnail">
-        <%= link_to image_tag(cafe.image.url), cafe %>
-        <div class="caption">
-          <h3><%= cafe.name %></h3>
-          <p>
-            <%= cafe.description %><br>
-            <%= cafe.address %><br>
-            <%= cafe.city %>
-            <%= cafe.state %>
-            <%= cafe.zipcode %><br>
-            <%= cafe.created_at %>
-          </p><br>
+<table class="table table-striped ">
+  <tr>
+    <th class="center">Image</th>
+    <th class="center">Name</th>
+    <th class="center">Address</th>
+    <th class="center">City</th>
+    <th class="center">State</th>
+    <th class="center">Description</th>
+    <th class="center">Action</th>
+  <tr/>
+  <%@caves.each do |cafe| %>
+    <tr>
+      <td><%=image_tag cafe.image.url(:thumb)%></td>
+      <td><%=cafe.name%></td>
+      <td><%=cafe.address%></td>
+      <td><%=cafe.city%></td>
+      <td><%=cafe.state%></td>
+      <td><%=cafe.description%></td>
+      <td>
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            Action <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+        <li><%= link_to "View", cafe, :class => 'btn btn-link' %></li>
+        <li><%= link_to "Edit", edit_cafe_path(cafe), :class => 'btn btn-link' %></li>
+        <li><%= link_to cafe_path(cafe), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+           <%= glyph 'remove' %>
+         <%- end -%></li>
 
-
-         <%= link_to cafe_path(cafe), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
-            <%= glyph 'remove' %>
-          <%- end -%>
-
+          </ul>
         </div>
-        </div>
-      </div>
-      <%end %>
-    </div>
+       </td>
+     </tr>
+   <%end%>
+  </table>
+
 
 <% if (user_signed_in?)%>
 <%= link_to t('.new', :default => t("helpers.links.new")),
