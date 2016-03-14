@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <div class="row">
   <div class="col-md-6">
@@ -14,10 +14,16 @@
       <%= @cafe.zipcode %>
     </p>
     <p><%= @cafe.description %></p>
+    <p>Owner: <%= @cafe.user.name %></p>
   </div>
 </div>
 
 
-
-<%= link_to 'Edit', edit_cafe_path(@cafe), class: "btn btn-link" %>
 <%= link_to 'Back', caves_path, class: "btn btn-link" %>
+<%= link_to 'Edit', edit_cafe_path(@cafe), class: "btn btn-link" %>
+
+<% if (current_user == @cafe.user) %>
+  <%= link_to cafe_path(@cafe), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure you want to delete this cafe?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+  <%= glyph 'remove' %>
+<%- end -%>
+<%end %>

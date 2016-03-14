@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   resources :caves
 
   get 'pages/about'
-
   get 'pages/contact'
+  get 'mycafes' => "caves#mycafes"
 
   resources :owners
 
