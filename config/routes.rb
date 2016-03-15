@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :caves
+
+
+  resources :caves do
+    resources :sessions
+  end
+
 
   get 'pages/about'
   get 'pages/contact'

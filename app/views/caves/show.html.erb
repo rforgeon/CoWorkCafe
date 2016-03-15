@@ -15,6 +15,10 @@
     </p>
     <p><%= @cafe.description %></p>
     <p>Owner: <%= @cafe.user.name %></p>
+    <br>
+    <div class = "center">
+      <%= link_to "Start Session", new_cafe_session_path(@cafe), class: "btn btn-primary" %>
+    </div>  
   </div>
 </div>
 
