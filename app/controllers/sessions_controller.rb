@@ -3,25 +3,19 @@ class SessionsController < InheritedResources::Base
   #before_action :set_order, only [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
-  # GET /sessions
-  # GET /sessions.json
-  def index
-    @sessions = Session.all
+  def customers
+    @sessions = Session.all.where(seller: current_user) #.session("created_at DESC")
   end
 
-  # GET /sessions/1
-  # GET /sessions/1.json
-  def show
+  def mysessions
+    @sessions = Session.all.where(buyer: current_user) #.session("created_at DESC")
   end
+
 
   # GET /sessions/new
   def new
     @session = Session.new
     @cafe = Cafe.find(params[:cafe_id])
-  end
-
-  # GET /sessions/1/edit
-  def edit
   end
 
   # POST /sessions
@@ -45,31 +39,6 @@ class SessionsController < InheritedResources::Base
       end
     end
   end
-
-  # PATCH/PUT /sessions/1
-  # PATCH/PUT /sessions/1.json
-  def update
-    respond_to do |format|
-      if @session.update(session_params)
-        format.html { redirect_to @session, notice: 'Session was successfully updated.' }
-        format.json { render :show, status: :ok, location: @session }
-      else
-        format.html { render :edit }
-        format.json { render json: @session.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /session/1
-  # DELETE /session/1.json
-  def destroy
-    @session.destroy
-    respond_to do |format|
-      format.html { redirect_to caves_url, notice: 'Session was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
 
 
   private

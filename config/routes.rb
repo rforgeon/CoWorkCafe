@@ -3,12 +3,15 @@ Rails.application.routes.draw do
 
   resources :caves do
     resources :sessions
+      resources :sessions, only: [:new, :create]
   end
 
 
   get 'pages/about'
   get 'pages/contact'
   get 'mycafes' => "caves#mycafes"
+  get 'customers' => "sessions#customers"
+  get 'mysessions' => "sessions#mysessions"
 
   resources :owners
 

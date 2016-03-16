@@ -1,0 +1,31 @@
+
+<%- model_class = Cafe -%>
+<div class="page-header">
+  <h1>Your Session History</h1>
+</div>
+
+<table class="table table-striped ">
+  <tr>
+    <th class="center">Image</th>
+    <th class="center">Location</th>
+    <th class="center">Owner</th>
+    <th class="center">Date</th>
+    <th class="center">Duration (hrs)</th>
+  <tr/>
+  <% @sessions.each do |session| %>
+    <tr>
+      <td class ="center"><%=image_tag session.cafe.image.url(:thumb)%></td>
+      <td class ="center"><%=session.cafe.name%></td>
+      <td class ="center"><%=session.seller.name%></td>
+      <td class ="center"><%=session.created_at.strftime("%B %-d, %Y")%></td>
+      <td class ="center"><%=(session.finish - session.start)/ 1.hour %></td>
+     </tr>
+   <%end%>
+  </table>
+
+
+<% if (user_signed_in?)%>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_cafe_path,
+            :class => 'btn btn-primary'%>
+  <%end %>

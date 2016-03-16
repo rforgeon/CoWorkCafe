@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
   has_many :workers
   has_many :owners
   has_many :caves
-  has_many :sales, class_name: "Session", foreign_key: "seller_id"
-  has_many :purchases, class_name: "Session", foreign_key: "buyer_id"
+  has_many :customers, class_name: "Session", foreign_key: "seller_id"
+  has_many :mysessions, class_name: "Session", foreign_key: "buyer_id"
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(provider: auth.provider, uid: auth.uid).first
