@@ -35,6 +35,19 @@ class CavesController < InheritedResources::Base
     @cafe = Cafe.new(cafe_params)
     @cafe.user = current_user
 
+    if current_user.recipient.blank?
+      Stripe.api_key = ENV["STRIPE_API_KEY"]
+      token = params[:stripeToken]
+
+      recipient = Stripe::Recipient.create(
+        :name => current_user.name,
+        :type => "individual",
+        :bank_account => token
+        )
+      end
+      current_user.recipient = recipient.id
+      current_user.save
+
     respond_to do |format|
       if @cafe.save
         format.html { redirect_to @cafe, notice: 'Cafe was successfully created.' }

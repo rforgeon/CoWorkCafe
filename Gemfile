@@ -1,3 +1,4 @@
+
 source 'https://rubygems.org'
 ruby "2.0.0"
 
@@ -34,6 +35,9 @@ gem "paperclip-dropbox", ">= 1.1.7"
 
 #hide information
 gem "figaro"
+
+#payments API
+gem 'stripe'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

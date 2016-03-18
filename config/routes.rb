@@ -87,7 +87,7 @@ Rails.application.routes.draw do
 
     get    "signup"  => "users/registrations#new",    as: :new_user_registration
     post   "signup"  => "users/registrations#create", as: :user_registration
-    put    "signup"  => "users/registrations#update", as: :update_user_registration
+    patch    "signup"  => "users/registrations#update", as: :update_user_registration
     get    "account" => "users/registrations#edit",   as: :edit_user_registration
   end
 

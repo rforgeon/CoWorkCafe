@@ -18,13 +18,13 @@
     <br>
     <div class = "center">
       <%= link_to "Start Session", new_cafe_session_path(@cafe), class: "btn btn-primary" %>
-    </div>  
+    </div>
   </div>
 </div>
 
 
 <%= link_to 'Back', caves_path, class: "btn btn-link" %>
-<%= link_to 'Edit', edit_cafe_path(@cafe), class: "btn btn-link" %>
+<%= link_to 'Edit', edit_cafe_path(@cafe), class: "btn btn-link", data: {no_turbolink: true} %>
 
 <% if (current_user == @cafe.user) %>
   <%= link_to cafe_path(@cafe), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure you want to delete this cafe?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
