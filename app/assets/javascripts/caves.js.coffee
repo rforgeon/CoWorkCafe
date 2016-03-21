@@ -6,8 +6,8 @@ cafe =
   setupForm: ->
     $('#new_cafe').submit ->
       if $('input').length > 6
-      $('input[type=submit]').attr('disabled', true)
-      Stripe.bankAccount.createToken($('#new_cafe'), cafe.handleStripeResponse)
+        $('input[type=submit]').attr('disabled', true)
+        Stripe.bankAccount.createToken($('#new_cafe'), cafe.handleStripeResponse)
       false
 
   handleStripeResponse: (status, response) ->

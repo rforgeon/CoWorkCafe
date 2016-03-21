@@ -40,4 +40,7 @@ Rails.application.configure do
 
   Paperclip.options[:command_path] = "/opt/ImageMagick/bin/"
 
+  #sprockets_better_errors for rails asset pipline errors
+  #config.assets.raise_production_errors = true
+
 end
