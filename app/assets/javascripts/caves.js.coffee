@@ -8,7 +8,7 @@ cafe =
       if $('input').length > 6
         $('input[type=submit]').attr('disabled', true)
         Stripe.bankAccount.createToken($('#new_cafe'), cafe.handleStripeResponse)
-      false
+        false
 
   handleStripeResponse: (status, response) ->
     if status == 200

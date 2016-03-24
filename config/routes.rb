@@ -6,9 +6,11 @@ Rails.application.routes.draw do
       resources :sessions, only: [:new, :create]
   end
 
+  resources :subscribers
 
   get 'pages/about'
   get 'pages/contact'
+  get 'pages/pricing'
   get 'mycafes' => "caves#mycafes"
   get 'customers' => "sessions#customers"
   get 'mysessions' => "sessions#mysessions"
