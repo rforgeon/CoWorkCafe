@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :reviews
+
   resources :caves do
     resources :sessions
       resources :sessions, only: [:new, :create]
