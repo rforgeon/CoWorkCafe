@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true
 
   #->Prelang (user_login/devise)
+  has_many :reviews 
   has_many :workers
   has_many :owners
   has_many :caves
