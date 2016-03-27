@@ -4,12 +4,13 @@ Rails.application.routes.draw do
 
 
   resources :caves do
+    resources :reviews, except: [:show, :index]
     resources :sessions
       resources :sessions, only: [:new, :create]
   end
 
   resources :subscribers
-  resources :reviews, except: [:show, :index]
+
 
   get 'pages/about'
   get 'pages/contact'

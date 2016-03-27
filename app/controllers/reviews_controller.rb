@@ -1,6 +1,7 @@
 class ReviewsController < InheritedResources::Base
 
 before_action :set_review, only: [:edit, :update, :destroy]
+before_action :set_cafe
 before_action :authenticate_user!
 
 
@@ -18,7 +19,8 @@ before_action :authenticate_user!
   # POST /reviews.json
   def create
     @review = Review.new(review_params)
-    @review.user_id = current_user
+    @review.user = current_user
+    @review.cafe_id = @cafe.id
 
     respond_to do |format|
       if @review.save
@@ -59,7 +61,16 @@ before_action :authenticate_user!
 
   private
 
+    def set_review
+      @review = Review.find(params[:id])
+    end
+
+    def set_cafe
+      @cafe = Cafe.find(params[:cafe_id])
+    end
+
+
     def review_params
-      params.require(:review).permit(:rating, :comment)
+      params.require(:review).permit(:rating, :comment, :user_id, :cafe_id)
     end
 end
