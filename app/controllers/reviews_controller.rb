@@ -24,7 +24,7 @@ before_action :authenticate_user!
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to root_path, notice: 'Your review was successfully created.' }
+        format.html { redirect_to @cafe, notice: 'Your review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
