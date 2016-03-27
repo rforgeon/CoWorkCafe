@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  resources :reviews
+
 
   resources :caves do
     resources :sessions
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :subscribers
+  resources :reviews, except: [:show, :index]
 
   get 'pages/about'
   get 'pages/contact'
