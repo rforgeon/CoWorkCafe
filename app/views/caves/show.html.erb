@@ -1,5 +1,4 @@
 
-
 <div class="row">
   <div class="col-md-6">
     <div class="thumbnail">
@@ -31,3 +30,30 @@
   <%= glyph 'remove' %>
 <%- end -%>
 <%end %>
+
+<br>
+<br>
+
+<div class = "row ">
+<%if @reviews.blank? %>
+  <h3> No reviews yet. Be the first to write one!</h3>
+<%else%>
+  <% @reviews.each do |review| %>
+    <div class = "panel panel-default form-style">
+      <h5><%= review.user.name %></h3>
+      <div class="star-rating" data-score= <%= review.rating %> ></div>
+      <p><%= review.comment %></p>
+    </div>
+  <% end %>
+<%end%>
+</div>
+
+<script>
+  $('.star-rating').raty({
+    path: '/images/ratyrate',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script>

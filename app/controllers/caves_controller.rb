@@ -18,6 +18,7 @@ class CavesController < InheritedResources::Base
   # GET /caves/1
   # GET /caves/1.json
   def show
+    @reviews = Review.where(cafe_id: @cafe.id)
   end
 
   # GET /caves/new
