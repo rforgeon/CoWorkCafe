@@ -18,7 +18,12 @@ class CavesController < InheritedResources::Base
   # GET /caves/1
   # GET /caves/1.json
   def show
-    @reviews = Review.where(cafe_id: @cafe.id)
+    @reviews = Review.where(cafe_id: @cafe.id).order('created_at DESC')
+    if @reviews.blank?
+      @avg_rating = 0
+    else
+      @avg_rating = @reviews.average(:rating).round(2)
+    end
   end
 
   # GET /caves/new

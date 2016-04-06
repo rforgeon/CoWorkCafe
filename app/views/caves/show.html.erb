@@ -15,6 +15,9 @@
     <p><%= @cafe.description %></p>
     <p>Owner: <%= @cafe.user.name %></p>
     <br>
+    <div class="star-rating" data-score= <%= @avg_rating %> ></div>
+    <p><%= "#{@reviews.length} reviews" %></p>
+    <br>
     <div class = "center">
       <%= link_to "Start Session", new_cafe_session_path(@cafe), class: "btn btn-primary" %>
     </div>
@@ -42,7 +45,7 @@
     <div class = "panel panel-default form-style">
       <h5><%= review.user.name %></h3>
       <div class="star-rating" data-score= <%= review.rating %> ></div>
-      <p><%= review.comment %></p>
+      <p><%= h(review.comment).gsub(/\n/, '<br/>').html_safe %></p>
     </div>
   <% end %>
 <%end%>
