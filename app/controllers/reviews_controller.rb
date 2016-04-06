@@ -3,7 +3,8 @@ class ReviewsController < InheritedResources::Base
 before_action :set_review, only: [:edit, :update, :destroy]
 before_action :set_cafe
 before_action :authenticate_user!
-
+before_action :check_user, only: [:edit, :update, :destroy]
+before_action :check_subscribed, only: [:create]
 
 
   # GET /reviews/new
@@ -63,6 +64,18 @@ before_action :authenticate_user!
 
     def set_review
       @review = Review.find(params[:id])
+    end
+
+    def check_user
+      unless @review.user == current_user
+        redirect_to root_url, alert: "Sorry, this review belongs to someone else"
+      end
+    end
+
+    def check_subscribed
+      unless current_user.subscribed
+        redirect_to "/pages/pricing", alert: "You must be a member to write a review"
+      end
     end
 
     def set_cafe
