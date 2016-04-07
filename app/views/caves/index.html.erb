@@ -17,6 +17,15 @@
         <div class="caption">
           <h3><%= cafe.name %></h3>
           <p>
+            <%@review = Review.where(cafe_id: cafe.id)%>
+            <%if @review.blank? %>
+              <%@avg_rating = 0%>
+            <%else%>
+              <%@avg_rating = @review.average(:rating).round(2)%>
+            <%end%>
+            <div class="star-rating" data-score= <%= @avg_rating %> ></div>
+            <p><%= "#{@review.length} reviews" %></p>
+            <br>
             <%= cafe.description %><br><br>
             <%= cafe.address %><br>
             <%= cafe.city %>
@@ -29,3 +38,15 @@
       </div>
       <%end %>
     </div>
+
+
+
+<script>
+  $('.star-rating').raty({
+    path: '/images/ratyrate',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script>
