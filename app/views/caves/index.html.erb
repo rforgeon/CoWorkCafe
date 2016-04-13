@@ -1,14 +1,16 @@
-<%= link_to "/pages/about" '#', {:style=>'color:#FFFFFF;'} do %>
-<div class="jumbotron">
-  <h1>CoWorking Space That Welcomes You</h1>
-  <h2>Find the best places to meet, work, create, and make</h2>
+<div class="container container-banner">
+
+  <a href="/pages/about#" style="color:#FFFFFF;">
+
+      <h1>CoWorking Space That Welcomes You</h1>
+      <h2>Find unique places to meet, work, create, and make</h2>
+
+</a>
 </div>
-<% end %>
+<br>
+<div class="container">
 
 <%- model_class = Cafe -%>
-<div class="page-header">
-  <h1>Cafes</h1>
-</div>
 
 <div class="row">
   <% @caves.each do |cafe| %>
@@ -37,8 +39,8 @@
         </div>
         </div>
       </div>
-      <%end %>
-    </div>
+    <%end %>
+</div>
 
 
 
@@ -51,3 +53,5 @@
     }
   });
 </script>
+
+</div>

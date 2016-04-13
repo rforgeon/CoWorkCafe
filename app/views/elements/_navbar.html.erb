@@ -7,7 +7,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <%= link_to "CoWorkCafe", defined?(root_path) ? root_path : "#", class: "navbar-brand" %>
+    <%= link_to "CoWorkClub", defined?(root_path) ? root_path : "#", class: "navbar-brand" %>
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
@@ -22,15 +22,18 @@
         <% if user_signed_in? %>
         <li><a href="/mysessions">My Sessions</a></Li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name%> <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="/customers">Customers</a></Li>
-              <li class="divider"></li>
-              <li><a href="/mycafes">Manage Cafes</a></Li>
-              <li class="divider"></li>  
-              <li><%= link_to "Edit Account", edit_user_registration_path %></li>
-              <li class="divider"></li>
-              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+	            <a href="#" class="btn btn-simple dropdown-toggle" data-toggle="dropdown">
+    	        <%=current_user.name%>
+    	        <b class="caret"></b>
+	            </a>
+  	            <ul class="dropdown-menu">
+                <li><a href="/customers">Customers</a></Li>
+                <li class="divider"></li>
+                <li><a href="/mycafes">Manage Space</a></Li>
+                <li class="divider"></li>
+                <li><%= link_to "Edit Account", edit_user_registration_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
             </ul>
           </li>
         <% else %>

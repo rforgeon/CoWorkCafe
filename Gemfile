@@ -39,6 +39,9 @@ gem "figaro"
 #payments API
 gem 'stripe'
 
+#Compass 1.0
+#gem 'compass --pre'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

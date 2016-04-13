@@ -13,9 +13,16 @@
       <%= @cafe.state %>
       <%= @cafe.zipcode %>
     </p>
-    <iframe width="300" height="300" frameborder="0" style="border:0"
+    <!--Google Maps-->
+    <iframe width="100%" height="300" frameborder="0" style="border:0"
       src="https://www.google.com/maps/embed/v1/place?q=<%=@cafe.address.parameterize%>+<%=@cafe.city%>+<%=@cafe.state%>+<%=@cafe.zipcode%>&key=AIzaSyBImOjWS34hk-HoksGRqlCuOlDUIy1vf2s" allowfullscreen>
     </iframe>
+    <!--End Google Maps-->
+    <br>
+    <br>
+
+    <div class=container> <!--Large container under col-md-6-->
+
     <p><%= @cafe.description %></p>
     <p>Owner: <%= @cafe.user.name %></p>
     <br>
@@ -25,22 +32,30 @@
     <div class = "center">
       <%= link_to "Start Session", new_cafe_session_path(@cafe), class: "btn btn-primary" %>
     </div>
-  </div>
+  </div> <!-- END Large container under col-md-6-->
+</div>
 </div>
 
-<%= link_to "Write a Review", new_cafe_review_path(@cafe), class: "btn btn-default" %>
-<%= link_to 'Back', caves_path, class: "btn btn-link" %>
-<%= link_to 'Edit', edit_cafe_path(@cafe), class: "btn btn-link", data: {no_turbolink: true} %>
+<br>
 
-<% if (current_user == @cafe.user) %>
-  <%= link_to cafe_path(@cafe), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure you want to delete this cafe?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
-  <%= glyph 'remove' %>
-<%- end -%>
-<%end %>
+<div class=container> <!--container for reviews controls-->
+
+  <%= link_to "Write a Review", new_cafe_review_path(@cafe), class: "btn btn-default" %>
+  <%= link_to 'Back', caves_path, class: "btn btn-link" %>
+  <%= link_to 'Edit', edit_cafe_path(@cafe), class: "btn btn-link", data: {no_turbolink: true} %>
+
+  <% if (current_user == @cafe.user) %>
+    <%= link_to cafe_path(@cafe), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure you want to delete this cafe?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+    <%= glyph 'remove' %>
+  <%- end -%>
+  <%end %>
+
+</div><!--END container for reviews controls-->
 
 <br>
 <br>
 
+<div class=container> <!--container for reviews table-->
 <div class = "row ">
 <%if @reviews.blank? %>
   <h3> No reviews yet. Be the first to write one!</h3>
@@ -79,6 +94,10 @@
 </table>
 <%end%>
 </div>
+
+</div><!--END Large container for reviews table-->
+
+
 
 <script>
   $('.star-rating').raty({
