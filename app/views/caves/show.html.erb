@@ -62,7 +62,9 @@
 
   <div class=container> <!--Large container under col-md-6-->
 
-    <h4>Current Capacity</h3>
+    <h4>Current Available Seats</h3>
+    <p> <%=totalCurrentSessions%> </p>
+
     <p>out of</p><%=@cafe.capacity%>
     <h4>Check-in Instructions</h3>
     <p><%= h(@cafe.checkin).gsub(/\n/, '<br/>').html_safe %></p>

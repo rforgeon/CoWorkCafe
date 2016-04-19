@@ -14,11 +14,15 @@
 
   <div class="field">
     <%= f.label :start %><br>
+    <%Time.use_zone("Pacific Time (US & Canada)") do%>
     <%= f.datetime_select :start %>
+    <%end%>
   </div>
   <div class="field">
     <%= f.label :finish %><br>
+    <%Time.use_zone("Pacific Time (US & Canada)") do%>
     <%= f.datetime_select :finish %>
+    <%end%>
   </div>
   <div class="actions">
     <%= f.submit %>

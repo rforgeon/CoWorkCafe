@@ -18,7 +18,7 @@
       <td><%=session.cafe.name%></td>
       <td><%=session.buyer.name%></td>
       <td><%=session.created_at.strftime("%B %-d, %Y")%></td>
-      <td><%=(session.finish - session.start)%></td>
+      <td><%=(session.finish - session.start)/ 1.hour %></td>
      </tr>
    <%end%>
   </table>

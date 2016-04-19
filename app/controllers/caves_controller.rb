@@ -1,9 +1,25 @@
 class CavesController < InheritedResources::Base
+  #include Comparable
 
   before_action :set_cafe, only: [:show, :edit, :update, :destroy]
   #->Prelang (scaffolding:rails/scope_to_user)
   before_filter :require_user_signed_in, only: [:owner, :new, :edit, :create, :update, :destroy]
   before_filter :check_user, only: [:edit, :update, :destroy]
+
+  #capacity
+  helper_method :totalCurrentSessions
+   def totalCurrentSessions
+     @sessions = Session.where(cafe_id: @cafe.id)
+     @currentTime = Time.now.in_time_zone("Pacific Time (US & Canada)")
+     @total = 0
+     @sessions.each do |s|
+       if (s.start..s.finish).cover?(@currentTime)
+         @total+=1
+       end
+    end
+     @cafe.capacity - @total
+  end
+
 
   def mycafes
     @caves = Cafe.where(user: current_user).order("created_at DESC")
@@ -18,13 +34,16 @@ class CavesController < InheritedResources::Base
   # GET /caves/1
   # GET /caves/1.json
   def show
+    #avg_rating
     @reviews = Review.where(cafe_id: @cafe.id).order('created_at DESC')
     if @reviews.blank?
       @avg_rating = 0
     else
       @avg_rating = @reviews.average(:rating).round(2)
     end
-  end
+
+    @sessions = Session.where(cafe_id: @cafe.id)
+end
 
   # GET /caves/new
   def new

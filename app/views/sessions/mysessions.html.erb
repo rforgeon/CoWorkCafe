@@ -10,6 +10,8 @@
     <th class="center">Location</th>
     <th class="center">Owner</th>
     <th class="center">Date</th>
+    <th class="center">Start</th>
+    <th class="center">End</th>
     <th class="center">Duration (hrs)</th>
   <tr/>
   <% @sessions.each do |session| %>
@@ -18,14 +20,16 @@
       <td class ="center"><%=session.cafe.name%></td>
       <td class ="center"><%=session.seller.name%></td>
       <td class ="center"><%=session.created_at.strftime("%B %-d, %Y")%></td>
-      <td class ="center"><%=(session.finish - session.start)/ 1.hour %></td>
+      <td class ="center"><%=session.start.strftime("%H:%M")%></td>
+      <td class ="center"><%=session.finish.strftime("%H:%M")%></td>
+      <td class ="center"><%=((session.finish - session.start)/ 1.hour).round(2) %></td>
      </tr>
    <%end%>
   </table>
 
 
-<% if (user_signed_in?)%>
+<!-- <% if (user_signed_in?)%>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_cafe_path,
             :class => 'btn btn-primary', data: {no_turbolink: true}%>
-  <%end %>
+  <%end %> -->
