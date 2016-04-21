@@ -34,8 +34,7 @@
             <%= cafe.city %>
             <%= cafe.state %>
             <%= cafe.zipcode %><br>
-            <%= link_to cafe_path(@cafe), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure you want to delete this cafe?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
-            <%= glyph 'remove' %>
+            <%= link_to 'Destroy', cafe, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
           </p><br>
 
         </div>
