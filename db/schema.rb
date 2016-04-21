@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415151710) do
+ActiveRecord::Schema.define(version: 20160421151617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20160415151710) do
     t.text     "checkin"
     t.integer  "capacity"
     t.string   "phone"
+    t.decimal  "rate"
   end
 
   create_table "owners", force: true do |t|
@@ -124,6 +125,7 @@ ActiveRecord::Schema.define(version: 20160415151710) do
     t.string   "recipient"
     t.boolean  "subscribed"
     t.string   "stripeid"
+    t.decimal  "credit"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

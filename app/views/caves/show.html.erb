@@ -62,10 +62,11 @@
 
   <div class=container> <!--Large container under col-md-6-->
 
-    <h4>Current Available Seats</h3>
-    <p> <%=totalCurrentSessions%> </p>
+    <h4>Rate</h3>
+    <p> <%=number_to_currency(@cafe.rate)%>/hour </p>
 
-    <p>out of</p><%=@cafe.capacity%>
+    <h4>Current Available Seats</h3>
+    <p> <%=totalCurrentSessions%> out of <%=@cafe.capacity%></p>
     <h4>Check-in Instructions</h3>
     <p><%= h(@cafe.checkin).gsub(/\n/, '<br/>').html_safe %></p>
     <h4>Description</h3>

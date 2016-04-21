@@ -1,8 +1,22 @@
 
-<%- model_class = Cafe -%>
+<div class=container>
 <div class="page-header">
-  <h1>Your Session History</h1>
+<h1>My Sessions</h1>
 </div>
+
+<h3>Available Credit</h3>
+<%=number_to_currency(current_user.credit)%>
+<br>
+<br>
+<%= link_to 'Add Credit',
+              '/payments/new', :class => 'btn btn-primary' %>
+
+</div><!--end container-->
+
+<%- model_class = Cafe -%>
+
+  <h2>Session History</h2>
+
 
 <table class="table table-striped ">
   <tr>
@@ -14,6 +28,7 @@
     <th class="center">End</th>
     <th class="center">Duration (hrs)</th>
   <tr/>
+
   <% @sessions.each do |session| %>
     <tr>
       <td class ="center"><%=image_tag session.cafe.image.url(:thumb)%></td>
@@ -26,10 +41,3 @@
      </tr>
    <%end%>
   </table>
-
-
-<!-- <% if (user_signed_in?)%>
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_cafe_path,
-            :class => 'btn btn-primary', data: {no_turbolink: true}%>
-  <%end %> -->

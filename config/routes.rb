@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :subscribers
+  resources :payments
 
 
   get 'pages/about'

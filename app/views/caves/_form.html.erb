@@ -46,6 +46,13 @@
   </div>
 </div>
 <div class="form-group">
+  <%= f.label :rate, :class => 'control-label col-md-2' %>
+  <div class=container><p>(hourly rate per worker)</p></div>
+  <div class="col-md-10">
+    <%= f.text_area :rate, :class => 'text-field form-control' %>
+  </div>
+</div>
+<div class="form-group">
   <%= f.label :address, :class => 'control-label col-md-2' %>
   <div class="col-md-10">
     <%= f.text_field :address, :class => 'text-field form-control' %>
