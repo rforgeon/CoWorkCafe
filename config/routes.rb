@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :subscribers
-  resources :payments
+  resources :payments, only: [:new, :create]
 
 
   get 'pages/about'
