@@ -5,7 +5,11 @@
 </div>
 
 <h3>Available Credit</h3>
+<%if current_user.credit.blank? %>
+<%=number_to_currency(0.00)%>
+<%else%>
 <%=number_to_currency(current_user.credit)%>
+<%end%>
 <br>
 <br>
 <%= link_to 'Add Credit',
@@ -29,15 +33,22 @@
     <th class="center">Duration (hrs)</th>
   <tr/>
 
-  <% @sessions.each do |session| %>
-    <tr>
-      <td class ="center"><%=image_tag session.cafe.image.url(:thumb)%></td>
-      <td class ="center"><%=session.cafe.name%></td>
-      <td class ="center"><%=session.seller.name%></td>
-      <td class ="center"><%=session.created_at.strftime("%B %-d, %Y")%></td>
-      <td class ="center"><%=session.start.strftime("%H:%M")%></td>
-      <td class ="center"><%=session.finish.strftime("%H:%M")%></td>
-      <td class ="center"><%=((session.finish - session.start)/ 1.hour).round(2) %></td>
-     </tr>
-   <%end%>
+  <%if @sessions.blank? %>
+  <h3>You have no sessions yet.</h3>
+  <%else%>
+    <% @sessions.each do |session| %>
+      <tr>
+        <td class ="center"><%=image_tag session.cafe.image.url(:thumb)%></td>
+        <td class ="center"><%=session.cafe.name%></td>
+        <td class ="center"><%=session.seller.name%></td>
+        <td class ="center"><%=session.created_at.strftime("%B %-d, %Y")%></td>
+        <td class ="center"><%=session.start.strftime("%H:%M")%></td>
+        <td class ="center"><%=session.finish.strftime("%H:%M")%></td>
+        <td class ="center"><%=((session.finish - session.start)/ 1.hour).round(2) %></td>
+       </tr>
+     <%end%>
+    <%end%>
+
+
+
   </table>
