@@ -1,4 +1,5 @@
-<%= form_tag payment_path, method: :put do %>
+
+<%= form_for(@payment, html: { multipart: true }, :html => { :class => 'form-horizontal form-model' }) do %>
 
 
 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"

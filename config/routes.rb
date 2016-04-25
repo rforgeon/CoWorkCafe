@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-
-
-
   resources :caves do
     resources :reviews, except: [:show, :index]
     resources :sessions
@@ -10,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :subscribers
-  resources :payments, only: [:new, :create]
+  resources :payments  #, only: [:new, :create]
 
 
   get 'pages/about'
