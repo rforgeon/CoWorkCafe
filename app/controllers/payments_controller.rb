@@ -29,7 +29,7 @@ class PaymentsController < ApplicationController
     @Payment.amount = charge.amount
 
     current_user.subscribed = true
-    current_user.credit += 25.00
+    current_user.credit = current_user.credit + 25.00
 
     current_user.save
     redirect_to caves_path
