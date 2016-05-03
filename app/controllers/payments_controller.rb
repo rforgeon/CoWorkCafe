@@ -28,8 +28,12 @@ class PaymentsController < ApplicationController
     @Payment.stripe_id = charge.id
     @Payment.amount = charge.amount
 
-    current_user.subscribed = true
-    current_user.credit = current_user.credit + 25.00
+    if current_user.subscribed != true
+      current_user.subscribed = true
+      current_user.credit = 25.00
+    else
+      current_user.credit = current_user.credit + 25.00
+    end
 
     current_user.save
     redirect_to caves_path
