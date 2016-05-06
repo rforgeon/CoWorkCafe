@@ -1,6 +1,7 @@
 class ImagesController < InheritedResources::Base
 
   before_action :authenticate_user!
+  before_action :set_cafe
 
 
   # GET /images/new
@@ -16,6 +17,7 @@ class ImagesController < InheritedResources::Base
   # POST /images.json
   def create
     @image = image.new(image_params)
+    @image.cafe_id = @cafe.id
 
     respond_to do |format|
       if @image.save
@@ -56,6 +58,14 @@ class ImagesController < InheritedResources::Base
 
 
   private
+
+  def set_image
+    @image = Image.find(params[:id])
+  end
+
+  def set_restaurant
+    @cafe = Cafe.find(params[:cafe_id])
+  end
 
     def image_params
       params.require(:image).permit(:cafe_id, :cafephoto)

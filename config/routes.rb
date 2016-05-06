@@ -4,13 +4,14 @@ Rails.application.routes.draw do
 
   resources :caves do
     resources :reviews, except: [:show, :index]
+    resources :images, except: [:show, :index]  
     resources :sessions
       resources :sessions, only: [:new, :create]
   end
 
   resources :subscribers
   resources :payments  #, only: [:new, :create]
-  resources :images, except: [:show, :index]  
+
 
 
   get 'pages/about'
