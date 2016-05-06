@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160424222401) do
+ActiveRecord::Schema.define(version: 20160506130006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,16 @@ ActiveRecord::Schema.define(version: 20160424222401) do
     t.integer  "capacity"
     t.string   "phone"
     t.decimal  "rate"
+  end
+
+  create_table "images", force: true do |t|
+    t.integer  "cafe_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "cafephoto_file_name"
+    t.string   "cafephoto_content_type"
+    t.integer  "cafephoto_file_size"
+    t.datetime "cafephoto_updated_at"
   end
 
   create_table "owners", force: true do |t|
