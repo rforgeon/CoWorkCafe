@@ -12,7 +12,10 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.file_field :image, class: "form-control" %>
+    <%= f.label :cafephoto, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.file_field :cafephoto %>
+    </div>
   </div>
 
   <div class="actions">

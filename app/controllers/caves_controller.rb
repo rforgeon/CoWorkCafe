@@ -34,6 +34,7 @@ class CavesController < InheritedResources::Base
   # GET /caves/1
   # GET /caves/1.json
   def show
+    @images = Image.where(cafe_id: @cafe.id)
     #avg_rating
     @reviews = Review.where(cafe_id: @cafe.id).order('created_at DESC')
     if @reviews.blank?

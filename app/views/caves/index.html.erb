@@ -14,10 +14,9 @@
 
 <div class="row">
   <% @caves.each do |cafe| %>
-    <div class="col-md-3">
       <div class="thumbnail">
         <%= link_to image_tag(cafe.image.url), cafe %>
-        <div class="caption">
+        <div class="caption"> <span>
           <h3><%= cafe.name %></h3>
           <p>
             <%@review = Review.where(cafe_id: cafe.id)%>
@@ -28,17 +27,10 @@
             <%end%>
             <div class="star-rating" data-score= <%= @avg_rating %> ></div>
             <p><%= "#{@review.length} reviews" %></p>
-            <br>
-            <%= cafe.description %><br><br>
-            <%= cafe.address %><br>
-            <%= cafe.city %>
-            <%= cafe.state %>
-            <%= cafe.zipcode %><br>
-          </p><br>
+          </p>
 
+          </span></div>
         </div>
-        </div>
-      </div>
     <%end %>
 </div>
 

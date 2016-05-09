@@ -68,7 +68,7 @@ before_action :check_subscribed, only: [:create]
 
     def check_user
       unless (@review.user == current_user)
-        redirect_to root_url, alert: "Sorry, this review belongs to someone else"
+        redirect_to cafe_path(@cafe), alert: "Sorry, this review belongs to someone else"
       end
     end
 

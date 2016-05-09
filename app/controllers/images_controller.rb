@@ -6,7 +6,7 @@ class ImagesController < InheritedResources::Base
 
   # GET /images/new
   def new
-    @image = image.new
+    @image = Image.new
   end
 
   # GET /images/1/edit
@@ -16,12 +16,12 @@ class ImagesController < InheritedResources::Base
   # POST /images
   # POST /images.json
   def create
-    @image = image.new(image_params)
+    @image = Image.new(image_params)
     @image.cafe_id = @cafe.id
 
     respond_to do |format|
       if @image.save
-        format.html { redirect_to root_path, notice: 'image was successfully created.' }
+        format.html { redirect_to @cafe, notice: 'your image was successfully added.' }
         format.json { render :show, status: :created, location: @image }
       else
         format.html { render :new }
@@ -35,7 +35,7 @@ class ImagesController < InheritedResources::Base
   def update
     respond_to do |format|
       if @image.update(image_params)
-        format.html { redirect_to root_path, notice: 'image was successfully updated.' }
+        format.html { redirect_to @cafe, notice: 'image was successfully updated.' }
         format.json { render :show, status: :ok, location: @image }
       else
         format.html { render :edit }
@@ -49,7 +49,7 @@ class ImagesController < InheritedResources::Base
   def destroy
     @image.destroy
     respond_to do |format|
-      format.html { redirect_to images_url, notice: 'image was successfully destroyed.' }
+      format.html { redirect_to @cafe, notice: 'image was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -63,8 +63,14 @@ class ImagesController < InheritedResources::Base
     @image = Image.find(params[:id])
   end
 
-  def set_restaurant
+  def set_cafe
     @cafe = Cafe.find(params[:cafe_id])
+  end
+
+  def check_user
+    unless current_user == @cafe.user_id
+      redirect_to @cafe, alert: "Sorry, this cafe belongs to someone else"
+    end
   end
 
     def image_params
