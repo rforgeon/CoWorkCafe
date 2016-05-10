@@ -22,6 +22,9 @@ before_action :check_subscribed, only: [:create]
     @review = Review.new(review_params)
     @review.user = current_user
     @review.cafe_id = @cafe.id
+    if @review.rating.blank?
+      @review.rating = 0
+    end
 
     respond_to do |format|
       if @review.save
@@ -53,7 +56,7 @@ before_action :check_subscribed, only: [:create]
   def destroy
     @review.destroy
     respond_to do |format|
-      format.html { redirect_to reviews_url, notice: 'Your review was successfully destroyed.' }
+      format.html { redirect_to @cafe, notice: 'Your review was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

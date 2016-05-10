@@ -44,7 +44,7 @@ class CavesController < InheritedResources::Base
     end
 
     @sessions = Session.where(cafe_id: @cafe.id)
-end
+  end
 
   # GET /caves/new
   def new
@@ -119,7 +119,7 @@ private
   end
 
   def cafe_params
-    params.require(:cafe).permit(:user_id, :name, :description, :address, :city, :state, :zipcode, :image)
+    params.require(:cafe).permit(:user_id, :name, :description, :address, :city, :state, :zipcode, :image, :checkin, :capacity, :phone, :rate)
   end
 
   def check_user

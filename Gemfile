@@ -39,9 +39,6 @@ gem "figaro"
 #payments API
 gem 'stripe'
 
-#photo gallery 
-gem 'hermitage'
-
 #Compass 1.0
 #gem 'compass --pre'
 

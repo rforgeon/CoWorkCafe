@@ -32,6 +32,12 @@
   </div>
 </div>
 <div class="form-group">
+  <%= f.label :phone, :class => 'control-label col-md-2' %>
+  <div class="col-md-10">
+    <%= f.text_area :phone, :class => 'text-field form-control' %>
+  </div>
+</div>
+<div class="form-group">
   <%= f.label :checkin, :class => 'control-label col-md-2' %>
   <div class=container><p><b>Instructions</b></p></div>
   <div class="col-md-10">
@@ -49,7 +55,7 @@
   <%= f.label :rate, :class => 'control-label col-md-2' %>
   <div class=container><p>(hourly rate per worker)</p></div>
   <div class="col-md-10">
-    <%= f.text_area :rate, :class => 'text-field form-control' %>
+    <%= f.number_field :rate, :class => 'integer-field form-control' %>
   </div>
 </div>
 <div class="form-group">

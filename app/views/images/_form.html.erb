@@ -1,3 +1,5 @@
+<div class=container>
+
 <%= form_for [@cafe, @image] , :html => { :multipart => true } do |f| %>
   <% if @image.errors.any? %>
     <div id="error_explanation">
@@ -12,7 +14,7 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :cafephoto, :class => 'control-label col-md-2' %>
+    <%= f.label :image, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.file_field :cafephoto %>
     </div>
@@ -22,3 +24,5 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+</div>

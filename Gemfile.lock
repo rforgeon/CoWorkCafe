@@ -134,10 +134,6 @@ GEM
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
     hashie (3.4.3)
-    hermitage (0.0.7)
-      coffee-rails
-      jquery-rails
-      rails (>= 3.2)
     hike (1.2.3)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
@@ -320,7 +316,6 @@ DEPENDENCIES
   factory_girl_rails
   figaro
   google-analytics-rails
-  hermitage
   jbuilder (~> 2.0)
   jquery-rails
   omniauth
