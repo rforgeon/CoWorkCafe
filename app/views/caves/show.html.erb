@@ -19,6 +19,8 @@
         <%= @cafe.zipcode %>
       </p>
       <p><%= @cafe.phone %></p>
+      <div class="star-rating" data-score= <%= @avg_rating %> ></div>
+      <p><%= "#{@reviews.length} reviews" %></p>
     </div>
     <br>
 
@@ -115,11 +117,8 @@
     <%end%>
     <!--current user edits-->
 
+    <br>
 
-    <br>
-    <div class="star-rating" data-score= <%= @avg_rating %> ></div>
-    <p><%= "#{@reviews.length} reviews" %></p>
-    <br>
     <div class = "center">
       <%= link_to "Start Session", new_cafe_session_path(@cafe), class: "btn btn-primary" %>
     </div>

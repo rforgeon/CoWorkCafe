@@ -60,13 +60,14 @@ class CavesController < InheritedResources::Base
   def create
     @cafe = Cafe.new(cafe_params)
     @cafe.user = current_user
+    @userfullname = "#{current_user.name} #{current_user.last_name}"
 
     if current_user.recipient.blank?
       Stripe.api_key = ENV["STRIPE_API_KEY"]
       token = params[:stripeToken]
 
       recipient = Stripe::Recipient.create(
-        :name => current_user.name,
+        :name => @userfullname,
         :type => "individual",
         :bank_account => token
         )

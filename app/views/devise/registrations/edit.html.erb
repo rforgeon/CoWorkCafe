@@ -16,8 +16,13 @@
     <% end %>
 
   <div class="field">
-    <%= f.label :name, :class => 'control-label col-md-2' %><br />
+    <%= f.label 'first name', :class => 'control-label col-md-2' %><br />
     <%= f.text_field :name, autofocus: true, :class => 'text-field form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'last name', :class => 'control-label col-md-2' %><br />
+    <%= f.text_field :last_name, autofocus: true, :class => 'text-field form-control' %>
   </div>
 
   <div class="field">

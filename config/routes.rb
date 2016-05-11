@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :caves do
     resources :reviews, except: [:show, :index]
-    resources :images, except: [:show, :index]  
+    resources :images, except: [:show, :index]
     resources :sessions
       resources :sessions, only: [:new, :create]
   end
@@ -92,6 +92,7 @@ Rails.application.routes.draw do
     get    "login"   => "users/sessions#new",         as: :new_user_session
     post   "login"   => "users/sessions#create",      as: :user_session
     delete "signout" => "users/sessions#destroy",     as: :destroy_user_session
+    delete "signup" => "users/sessions#destroy"
 
     get    "signup"  => "users/registrations#new",    as: :new_user_registration
     post   "signup"  => "users/registrations#create", as: :user_registration

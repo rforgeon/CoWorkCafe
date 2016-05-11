@@ -84,4 +84,3 @@ Rails.application.configure do
   GA.tracker = ""
 
 end
-
