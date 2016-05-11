@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   resources :workers
 
   devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+
   devise_for :users, controllers: {registrations: "users/registrations", sessions: "users/sessions", passwords: "users/passwords", omniauth_callbacks: "users/omniauth_callbacks"}, skip: [:sessions, :registrations]
 
 
@@ -99,5 +99,7 @@ Rails.application.routes.draw do
     patch    "signup"  => "users/registrations#update", as: :update_user_registration
     get    "account" => "users/registrations#edit",   as: :edit_user_registration
   end
+
+  ActiveAdmin.routes(self)
 
 end
