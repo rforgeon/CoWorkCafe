@@ -1,3 +1,5 @@
+<div class=container>
+
 <%= form_for([@cafe, @session]) do |f| %>
   <% if @session.errors.any? %>
   <div id="error_explanation" class="alert alert-danger alert-dismissable">
@@ -25,7 +27,15 @@
     <%end%>
   </div>
 
+  <br>
+  <p>Your credits will be charged once you create your session.</p>
+  <p>Sessions are non-refundable.</p>
+
+  <br>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, :class => 'btn btn-primary'%>
     <%end%>
   </div>
+
+</div>
