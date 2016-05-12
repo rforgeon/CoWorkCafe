@@ -3,7 +3,7 @@
 
 
 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-key="<%= ENV["STRIPE_PUBLIC_KEY"] %>"
           data-description="CoWorking Credit"
           data-amount="2500"></script><span> $25 in CoWork Credit.</span>
 <% end %>

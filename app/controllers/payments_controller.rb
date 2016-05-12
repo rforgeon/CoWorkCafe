@@ -1,5 +1,7 @@
 class PaymentsController < InheritedResources::Base
 
+  before_filter :require_user_signed_in
+
   # GET /payments/new
   def new
     @payment = Payment.new
