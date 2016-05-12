@@ -27,7 +27,11 @@
     	        <b class="caret"></b>
 	            </a>
   	            <ul class="dropdown-menu">
-                <li><a href="/pages/pricing"> <%=number_to_currency(current_user.credit)%> </a></Li>
+                <%if current_user.credit.nil? %>
+                  <li><a href="/pages/pricing"> <%=number_to_currency(0)%> </a></Li>
+                    <%else%>
+                    <li><a href="/pages/pricing"> <%=number_to_currency(current_user.credit)%> </a></Li>
+                <%end%>
                 <li class="divider"></li>
                 <li><a href="/customers">Customers</a></Li>
                 <li class="divider"></li>
