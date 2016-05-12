@@ -1,4 +1,4 @@
-class PaymentsController < ApplicationController
+class PaymentsController < InheritedResources::Base
 
   # GET /payments/new
   def new

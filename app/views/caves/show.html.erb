@@ -37,24 +37,46 @@
 
   <div class=container> <!--Large container under col-md-6-->
 
-    <h4>Rate</h3>
-    <p> <%=number_to_currency(@cafe.rate)%>/hour </p>
+    <table class="table">
+      <thead>
+      </thead>
+      <tbody>
 
-    <h4>Current Available Seats</h3>
-    <p> <%=totalCurrentSessions%> out of <%=@cafe.capacity%></p>
-    <h4>Check-in Instructions</h3>
-      <% if signed_in? %>
-        <%if current_user.subscribed %>
-          <p><%= h(@cafe.checkin).gsub(/\n/, '<br/>').html_safe %></p>
-        <%else%>
-          <p>You must have<%= link_to 'credits or be subscribed', '/pages/pricing', class: "btn btn-link" %>to view this information.</p>
-      <%end%>
-      <%else%>
-        <p>You must have<%= link_to 'credits or be subscribed', '/pages/pricing', class: "btn btn-link" %>to view this information.</p>
-      <%end%>
-    <h4>Description</h3>
-    <p><%= h(@cafe.description).gsub(/\n/, '<br/>').html_safe %></p>
-    <p>Owner: <%= @cafe.user.name %></p>
+          <h4>Rate</h3>
+          <p> <%=number_to_currency(@cafe.rate)%>/hour </p>
+        <tr>
+          <td>
+          <h4>Current Available Seats</h3>
+          <p> <%=totalCurrentSessions%> out of <%=@cafe.capacity%></p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <h4>Check-in Instructions</h3>
+            <% if signed_in? %>
+              <%if current_user.subscribed %>
+                <p><%= h(@cafe.checkin).gsub(/\n/, '<br/>').html_safe %></p>
+              <%else%>
+                <p>You must have<%= link_to 'credits or be subscribed', '/pages/pricing', class: "btn btn-link" %>to view this information.</p>
+            <%end%>
+            <%else%>
+              <p>You must have<%= link_to 'credits or be subscribed', '/pages/pricing', class: "btn btn-link" %>to view this information.</p>
+            <%end%>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <h4>Description</h3>
+          <p><%= h(@cafe.description).gsub(/\n/, '<br/>').html_safe %></p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <p>Owner: <%= @cafe.user.name %></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
       <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
   <div id="blueimp-gallery" class="blueimp-gallery">
@@ -168,7 +190,7 @@
               <% end %>
           </td>
         <td>
-        <div class = "panel panel-default form-style">
+        <div class = "form-style">
           <div class="star-rating" data-score= <%= review.rating %> ></div>
           <p><%= h(review.comment).gsub(/\n/, '<br/>').html_safe %></p>
         </div>

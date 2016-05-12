@@ -77,7 +77,7 @@ class CavesController < InheritedResources::Base
 
     respond_to do |format|
       if @cafe.save
-        format.html { redirect_to @cafe, notice: 'Cafe was successfully created.' }
+        format.html { redirect_to @cafe, notice: 'Space was successfully created.' }
         format.json { render :show, status: :created, location: @cafe }
       else
         format.html { render :new }
@@ -91,7 +91,7 @@ class CavesController < InheritedResources::Base
   def update
     respond_to do |format|
       if @cafe.update(cafe_params)
-        format.html { redirect_to @cafe, notice: 'Cafe was successfully updated.' }
+        format.html { redirect_to @cafe, notice: 'Space was successfully updated.' }
         format.json { render :show, status: :ok, location: @cafe }
       else
         format.html { render :edit }
@@ -105,7 +105,7 @@ class CavesController < InheritedResources::Base
   def destroy
     @cafe.destroy
     respond_to do |format|
-      format.html { redirect_to caves_url, notice: 'Cafe was successfully destroyed.' }
+      format.html { redirect_to caves_url, notice: 'Space was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
