@@ -5,5 +5,8 @@
 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= ENV["STRIPE_PUBLIC_KEY"] %>"
           data-description="CoWorking Credit"
+          data-name="nativeNomadic"
+          data-locale="auto"
           data-amount="2500"></script><span> $25 in CoWork Credit.</span>
+
 <% end %>
