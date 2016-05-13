@@ -37,6 +37,11 @@
 
   <div class=container> <!--Large container under col-md-6-->
 
+    <div class = "center">
+      <%= link_to "Start Session", new_cafe_session_path(@cafe), class: "btn btn-primary" %>
+    </div>
+    <br>
+
     <table class="table">
       <thead>
       </thead>
@@ -48,6 +53,7 @@
           <td>
           <h4>Current Available Seats</h3>
           <p> <%=totalCurrentSessions%> out of <%=@cafe.capacity%></p>
+          <!-- <hr width="100" align="left"> -->
           </td>
         </tr>
         <tr>
@@ -62,17 +68,20 @@
             <%else%>
               <p>You must have<%= link_to 'credits or be subscribed', '/pages/pricing', class: "btn btn-link" %>to view this information.</p>
             <%end%>
+            <!-- <hr width="100" align="left"> -->
           </td>
         </tr>
         <tr>
           <td>
           <h4>Description</h3>
           <p><%= h(@cafe.description).gsub(/\n/, '<br/>').html_safe %></p>
+          <!-- <hr width="100" align="left"> -->
           </td>
         </tr>
         <tr>
           <td>
           <p>Owner: <%= @cafe.user.name %></p>
+          <!-- <hr width="100" align="left"> -->
           </td>
         </tr>
       </tbody>
@@ -141,9 +150,7 @@
 
     <br>
 
-    <div class = "center">
-      <%= link_to "Start Session", new_cafe_session_path(@cafe), class: "btn btn-primary" %>
-    </div>
+
   </div> <!-- END Large container under col-md-6-->
 
 
