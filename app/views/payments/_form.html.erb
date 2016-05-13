@@ -1,12 +1,13 @@
 
 <%= form_for(@payment, html: { multipart: true }, :html => { :class => 'form-horizontal form-model' }) do %>
 
-
-<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= ENV["STRIPE_PUBLIC_KEY"] %>"
-          data-description="CoWorking Credit"
-          data-name="nativeNomadic"
-          data-locale="auto"
-          data-amount="2500"></script><span> $25 in CoWork Credit.</span>
+  <form action="/charge" method="POST">
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= ENV["STRIPE_PUBLIC_KEY"] %>"
+              data-description="CoWorking Credit"
+              data-name="nativeNomadic"
+              data-locale="auto"
+              data-amount="2500"></script><span> $25 in CoWork Credit.</span>
+  </form>
 
 <% end %>
