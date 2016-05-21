@@ -7,6 +7,9 @@
 
 </a>
 </div>
+
+
+
 <br>
 <div class="container">
 
@@ -35,6 +38,8 @@
 </div>
 
 
+
+
 </div>
 
 <!-- star rating -->
@@ -60,5 +65,19 @@ $(document).ready(function(){
         //Reload the page
         location.reload(true);
     }
+});
+</script>
+
+<script type="text/javascript">
+$( document ).ready(function() {
+  //display spinner between pages
+  $(document).on("page:fetch", function(){
+    $(".sk-folding-cube").show();
+  });
+
+  $(document).on("page:receive", function(){
+    $(".sk-folding-cube").hide();
+  });
+
 });
 </script>
