@@ -5,6 +5,7 @@ class CavesController < InheritedResources::Base
   #->Prelang (scaffolding:rails/scope_to_user)
   before_filter :require_user_signed_in, only: [:owner, :new, :edit, :create, :update, :destroy]
   before_filter :check_user, only: [:edit, :update, :destroy]
+  before_filter :check_admin, only: [:new]
 
   #capacity
   helper_method :totalCurrentSessions
@@ -132,4 +133,13 @@ private
     end
   end
 
-end
+  def check_admin
+    if current_user.email != 'rforgeon@gmail.com'
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: 'Please contact us if you would like to list your space!' }
+        format.json { head :no_content }
+        end
+      end
+    end
+
+  end
