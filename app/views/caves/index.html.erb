@@ -8,7 +8,12 @@
 </a>
 </div>
 
-
+<div class="sk-folding-cube">
+  <div class="sk-cube1 sk-cube"></div>
+  <div class="sk-cube2 sk-cube"></div>
+  <div class="sk-cube4 sk-cube"></div>
+  <div class="sk-cube3 sk-cube"></div>
+</div>
 
 <br>
 <div class="container">
@@ -66,18 +71,14 @@ $(document).ready(function(){
         location.reload(true);
     }
 });
-</script>
 
-<script type="text/javascript">
-$( document ).ready(function() {
-  //display spinner between pages
-  $(document).on("page:fetch", function(){
-    $(".sk-folding-cube").show();
+
+$(".sk-folding-cube").hide();
+
+  $(document).ajaxStart(function() {
+    $(".sk-folding-cube").fadeIn('slow');
+  }).ajaxStop(function() {
+      $(".sk-folding-cube").hide();
   });
 
-  $(document).on("page:receive", function(){
-    $(".sk-folding-cube").hide();
-  });
-
-});
 </script>
