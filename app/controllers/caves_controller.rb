@@ -30,6 +30,11 @@ class CavesController < InheritedResources::Base
   # GET /caves.json
   def index
     @caves = Cafe.all
+    respond_to do |format|
+      format.html
+      format.json
+      format.js
+    end
   end
 
   # GET /caves/1
@@ -45,6 +50,11 @@ class CavesController < InheritedResources::Base
     end
 
     @sessions = Session.where(cafe_id: @cafe.id)
+
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   # GET /caves/new

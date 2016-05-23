@@ -15,3 +15,7 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+//= require nprogress
+//= require nprogress-turbolinks
+
+angular.module('co_work_cafe', [ 'nprogress-rails' ]);

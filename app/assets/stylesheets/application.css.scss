@@ -14,12 +14,18 @@
 *= stub active_admin
 
 *= require_self
+*= require nprogress
+*= require nprogress-bootstrap
+
 */
 //@import "bootstrap_configuration";
+
 
 @import "bootstrap-sprockets";
 
 @import "bootstrap";
+
+
 
 //@import url(https://fonts.googleapis.com/css?family=Quicksand:300,400,700);
 
