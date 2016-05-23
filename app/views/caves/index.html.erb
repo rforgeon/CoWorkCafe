@@ -8,14 +8,7 @@
 </a>
 </div>
 
-<div class="sk-folding-cube">
-  <div class="sk-cube1 sk-cube"></div>
-  <div class="sk-cube2 sk-cube"></div>
-  <div class="sk-cube4 sk-cube"></div>
-  <div class="sk-cube3 sk-cube"></div>
-</div>
 
-<br>
 <div class="container">
 
 <%- model_class = Cafe -%>
@@ -51,6 +44,7 @@
 
 <!-- star rating -->
 <script>
+
   $('.star-rating').raty({
     path: '/images/ratyrate',
     readOnly: true,
@@ -58,6 +52,7 @@
       return $(this).attr('data-score');
     }
   });
+
 </script>
 
 <!-- reload page once to load javascript -->
@@ -73,21 +68,16 @@ $(document).ready(function(){
         location.reload(true);
     }
 });
-
 </script>
 
 <script>
-$(".sk-folding-cube").hide();
+( function($) {
 
-  $(document).ajaxStart(function() {
-    $(".sk-folding-cube").fadeIn('slow');
-  }).ajaxStop(function() {
-      $(".sk-folding-cube").hide();
-  });
 
-</script>
-<script>
-$(document).ready(function() {
+$(document).on('ready page:change', function() {
   NProgress.start();
 });
+
+} ) ( jQuery );
+
 </script>

@@ -227,7 +227,13 @@
 <script src="js/bootstrap-image-gallery.min.js"></script>
 
 <script>
-$(document).ready(function() {
+( function($) {
+
+
+$(document).on('ready page:change', function() {
   NProgress.start();
 });
+
+} ) ( jQuery );
+
 </script>
