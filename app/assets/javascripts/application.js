@@ -19,4 +19,4 @@
 //= require nprogress-turbolinks
 
 
-// angular.module('co_work_cafe', [ 'nprogress-rails' ]);
+angular.module('co_work_cafe', [ 'nprogress-rails' ]);

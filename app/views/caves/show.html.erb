@@ -230,8 +230,11 @@
 ( function($) {
 
 
-$(document).on('ready page:change', function() {
+$(document).on('turbolinks:load change', function() {
   NProgress.start();
+});
+$(document).on('page:loaded', function() {
+  NProgress.done();
 });
 
 } ) ( jQuery );
