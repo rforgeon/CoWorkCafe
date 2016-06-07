@@ -15,7 +15,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
-#progress bar for page load 
+#progress bar for page load
 gem 'nprogress-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -41,20 +41,11 @@ gem "figaro"
 #payments API
 gem 'stripe'
 
-#Compass 1.0
-#gem 'compass --pre'
+#Use unicorn as the app server
+gem 'unicorn'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+# server timeout 
+gem 'rack-timeout'
 
 gem 'bundler'
 
