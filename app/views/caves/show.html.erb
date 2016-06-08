@@ -1,28 +1,31 @@
 
 
 
-<div class=row>
-  <div class="col-md-6">
+<!-- <div class=row>
+  <div class="col-md-6"> -->
     <br>
     <div class="thumbnail">
       <%= image_tag @cafe.image.url %>
+      <div class="wrapper">
+   <div class="caption post-content">
+
+     <h2><%= @cafe.name %></h2>
+     <p><%= @cafe.address %><br>
+       <%= @cafe.city %>
+       <%= @cafe.state %>
+       <%= @cafe.zipcode %>
+     </p>
+     <p><%= @cafe.phone %></p>
+
+           </div>
+       </div>
     </div>
 
-
-  </div>
-  <div class="col-md-6">
-    <div class=container>
-      <h3><%= @cafe.name %></h3>
-      <p><%= @cafe.address %><br>
-        <%= @cafe.city %>
-        <%= @cafe.state %>
-        <%= @cafe.zipcode %>
-      </p>
-      <p><%= @cafe.phone %></p>
-      <div class="star-rating" data-score= <%= @avg_rating %> ></div>
-      <p><%= "#{@reviews.length} reviews" %></p>
+    <div class="container">
+    <div class="star-rating" data-score= <%= @avg_rating %> ></div>
+    <p><%= "#{@reviews.length} reviews" %></p>
     </div>
-    <br>
+
 
     <!--Google Maps-->
     <div class="overlayMap" onClick="style.pointerEvents='none'"></div>
@@ -30,8 +33,7 @@
       src="https://www.google.com/maps/embed/v1/place?q=<%=@cafe.address.parameterize%>+<%=@cafe.city%>+<%=@cafe.state%>+<%=@cafe.zipcode%>&key=AIzaSyBImOjWS34hk-HoksGRqlCuOlDUIy1vf2s" allowfullscreen>
     </iframe>
     <!--End Google Maps-->
-  </div><!--End col-md-6-->
-</div><!--End Row-->
+
 
     <br>
 

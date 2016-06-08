@@ -44,7 +44,7 @@ gem 'stripe'
 #Use unicorn as the app server
 gem 'unicorn'
 
-# server timeout 
+# server timeout
 gem 'rack-timeout'
 
 gem 'bundler'
