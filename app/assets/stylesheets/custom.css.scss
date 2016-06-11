@@ -56,18 +56,19 @@
 
 .jumbotron {
   position: relative;
-  background: url('https://dl.dropboxusercontent.com/s/w78r3zdytfl6f2j/1280x445View_Text.png?dl=0') center center;
+  background: url('https://dl.dropboxusercontent.com/s/otbt4wgvrppvr8a/1280x445View.png?dl=0') center center;
   height: 300px;
   width: 100%;
   background-size: cover;
   overflow: hidden;
+
 }
 .jumbo-container {
-  background-image: url('https://dl.dropboxusercontent.com/s/w78r3zdytfl6f2j/1280x445View_Text.png?dl=0');
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  width: 100%;
-  height:100%;
+  h2{
+    color: white;
+    font-size: 78px;
+    text-align: center;
+  }
 
 }
 
