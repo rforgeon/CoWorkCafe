@@ -69,9 +69,18 @@
     font-size: 78px;
     text-align: center;
   }
-
 }
 
+.jumbo-container-cover {
+  position: relative;
+  background: url('https://dl.dropboxusercontent.com/s/mf3i3nvn38iofno/1280x445View_guyonly.png?dl=0') center center;
+  height: 300px;
+  width: 100%;
+  background-size: cover;
+  overflow: hidden;
+  //top:0px;  /* your iframe height */
+  margin-top:-163px;  /* your iframe height */
+}
 
 
 .container.container-banner{
