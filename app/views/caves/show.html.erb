@@ -71,7 +71,7 @@
                 <p><%= h(@cafe.checkin).gsub(/\n/, '<br/>').html_safe %></p>
               <%else%>
                 <p>You must have<%= link_to 'credits or be subscribed', '/pages/pricing', class: "btn btn-link" %>to view this information.</p>
-            <%end%>
+              <%end%>
             <%else%>
               <p>You must have<%= link_to 'credits or be subscribed', '/pages/pricing', class: "btn btn-link" %>to view this information.</p>
             <%end%>
