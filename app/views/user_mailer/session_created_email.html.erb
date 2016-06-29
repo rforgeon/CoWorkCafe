@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Your Sessoin has been created!</h1>
+
+    <!-- <div class="thumbnail">
+      <img alt="" src="https://www.nativenomadic.com/assets/<%=@cafe.image%>" >
+    </div> -->
+     <br>
+     <br>
+     <h2><%= @cafe.name %></h2>
+     <p><%= @cafe.address %><br>
+       <%= @cafe.city %>
+       <%= @cafe.state %>
+       <%= @cafe.zipcode %>
+     </p>
+     <p><%= @cafe.phone %></p>
+
+    <h3>
+      Your session duration:<br>
+    </h3>
+    <p>
+      Start Time: <%=@session_start.strftime("%m/%d %l:%M%p")%>
+    </p>
+    <p>
+      End Time: <%=@session_finish.strftime("%m/%d %l:%M%p")%>
+    </p>
+    <h1>Check-in Instructions</h1>
+    <p>
+      <%=@cafe.checkin%>
+    </p>
+    <h3>Thanks for coming in and have a great, productive day!</h3>
+  </body>
+</html>

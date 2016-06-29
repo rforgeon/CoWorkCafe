@@ -1,0 +1,20 @@
+
+A new Sessoin has been created!
+
+<%= @cafe.name %>
+<%= @cafe.address %>
+   <%= @cafe.city %>
+   <%= @cafe.state %>
+   <%= @cafe.zipcode %>
+
+
+User
+ <%=@user.name%>
+ <%=@user.email%>
+
+
+  Session duration:
+
+  Start Time: <%=@session_start.strftime("%m/%d %l:%M%p")%>
+
+  End Time: <%=@session_finish.strftime("%m/%d %l:%M%p")%>

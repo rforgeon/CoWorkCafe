@@ -1,0 +1,23 @@
+
+
+Your Sessoin has been created!
+
+<%= @cafe.name %>
+<%= @cafe.address %>
+  <%= @cafe.city %>
+  <%= @cafe.state %>
+  <%= @cafe.zipcode %>
+
+<%= @cafe.phone %>
+
+
+Your session duration:
+
+ Start Time: <%=@session_start.strftime("%m/%d %l:%M%p")%>
+
+ End Time: <%=@session_finish.strftime("%m/%d %l:%M%p")%>
+
+Check-in Instructions:
+ <%=@cafe.checkin%>
+
+Thanks for coming in and have a great, productive day!
