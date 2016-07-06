@@ -32,15 +32,9 @@
 <div class="row">
   <% @caves.each do |cafe| %>
       <div class="thumbnail" id="image">
-
-        <%if cafe.image.present?%>
-          <%= link_to image_tag(cafe.image.url), cafe %>
-        <%else%>
-          <%= link_to image_tag ('noImage.png'), cafe%>
-        <%end%>
-
+          <!-- <%= link_to image_tag(cafe.image.url), cafe %> -->
         <div class="caption"> <span>
-          <h3><%= cafe.name %></h3>
+          <h3><%= link_to cafe.name, cafe %></h3>
           <p>
             <%@review = Review.where(cafe_id: cafe.id)%>
             <%if @review.blank? %>
