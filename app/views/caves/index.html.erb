@@ -32,7 +32,13 @@
 <div class="row">
   <% @caves.each do |cafe| %>
       <div class="thumbnail" id="image">
-        <%= link_to image_tag(cafe.image.url), cafe %>
+
+        <%if cafe.image.present?%>
+          <%= link_to image_tag(cafe.image.url), cafe %>
+        <%else%>
+          <%= link_to image_tag ('noImage.png'), cafe%>
+        <%end%>
+
         <div class="caption"> <span>
           <h3><%= cafe.name %></h3>
           <p>
