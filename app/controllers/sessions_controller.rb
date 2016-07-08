@@ -61,7 +61,7 @@ class SessionsController < InheritedResources::Base
     @seller = @cafe.user
 
     #set default owner cut to 20%
-    if @cafe.user.ownercut != true 
+    if @cafe.user.ownercut != true
       @cafe.user.ownercut = 80
       @cafe.user.save
     end
@@ -93,13 +93,13 @@ class SessionsController < InheritedResources::Base
     end
     ###
 
-    #Transfer payment to owner
-    transfer = Stripe::Transfer.create(
-     :amount => (@totalPay * @ownercut).floor,
-     :currency => "usd",
-     :recipient => @seller.recipient
-     )
-     ###
+    # #Transfer payment to owner
+    # transfer = Stripe::Transfer.create(
+    #  :amount => (@totalPay * @ownercut).floor,
+    #  :currency => "usd",
+    #  :recipient => @seller.recipient
+    #  )
+    #  ###
 
 
     respond_to do |format|
