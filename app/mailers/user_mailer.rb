@@ -7,7 +7,7 @@ class UserMailer < ActionMailer::Base
   :domain         => 'mail.google.com',
   :port           => 587,
   :user_name      => 'rforgeon@gmail.com',
-  :password       => 'snorkle4',
+  :password       => 'Show3rOctopus',
   :authentication => :plain,
   :enable_starttls_auto => true
 }
