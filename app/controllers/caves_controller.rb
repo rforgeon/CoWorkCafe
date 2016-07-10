@@ -20,6 +20,7 @@ class CavesController < InheritedResources::Base
     end
      @cafe.capacity - @total
   end
+  ###
 
 
   def mycafes

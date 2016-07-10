@@ -27,6 +27,13 @@
   <%= tag :meta, :name => "stripe-key", :content => ENV["STRIPE_PUBLIC_KEY"]%>
 <meta name="viewport" content="width=device-width, initial-scale=1"/><!-- Prelang: Analytics / Google Analytics -->
     <%= analytics_init if Rails.env.production? or Rails.env.development? %>
+
+  <!-- #Spinner for every page   -->
+  <div id="spinner" class="spinner" style="display:none;">
+      <img id="img-spinner" src="ajax-loader.gif" alt="Loading"/>
+  </div>
+  <!-- ### -->
+
 </head>
 <body>
 <%= render partial: "elements/navbar" %>

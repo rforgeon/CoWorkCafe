@@ -56,8 +56,30 @@
 
 </div>
 
+<!-- load spinner on ajax-->
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#spinner").bind("ajaxSend", function() {
+        $(this).show();
+    }).bind("ajaxStop", function() {
+        $(this).hide();
+    }).bind("ajaxError", function() {
+        $(this).hide();
+    });
 
+     });
+</script>
+<!-- load spinner on ajax-->
 
+<!-- load spinner on click-->
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#image').click(function() {
+        $('#spinner').show();
+    });
+});
+</script>
+<!-- //load spinner-->
 
 <!-- star rating -->
 <script>
