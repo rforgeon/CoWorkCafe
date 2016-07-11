@@ -32,7 +32,7 @@
 <div class="row">
   <% @caves.each do |cafe| %>
       <div class="thumbnail" id="image">
-        <%= link_to image_tag(cafe.image.url), cafe %>
+        <%= link_to image_tag(cafe.image.url), cafe, :action => "startSpinner" %>
         <div class="caption"> <span>
           <h3><%= cafe.name %></h3>
           <p>
@@ -56,28 +56,29 @@
 
 </div>
 
-<!-- load spinner on ajax-->
-<script type="text/javascript">
-$(document).ready(function(){
-    $("#spinner").bind("ajaxSend", function() {
-        $(this).show();
-    }).bind("ajaxStop", function() {
-        $(this).hide();
-    }).bind("ajaxError", function() {
-        $(this).hide();
-    });
 
-     });
-</script>
-<!-- load spinner on ajax-->
+<div class="modal"></div>
+
+
+<!-- <script>
+$(document).on({
+    ajaxStart: function() { $body.addClass("loading");    },
+     ajaxStop: function() { $body.removeClass("loading"); }
+});
+
+</script> -->
+
 
 <!-- load spinner on click-->
 <script type="text/javascript">
-$(document).ready(function(){
-    $('#image').click(function() {
+//fix on click div instead of onclick document
+$(document).on("click", function() {
         $('#spinner').show();
+        setTimeout(function() {
+                   $('#spinner').hide();
+             }, 5000);
+
     });
-});
 </script>
 <!-- //load spinner-->
 
