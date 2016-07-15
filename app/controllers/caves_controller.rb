@@ -31,11 +31,22 @@ class CavesController < InheritedResources::Base
   # GET /caves.json
   def index
     @caves = Cafe.all
-    respond_to do |format|
-      format.html
-      format.json
-      format.js
-    end
+    # respond_to do |format|
+    #   if current_user.email != 'rforgeon@gmail.com'
+    #     #nothing
+    #     format.html
+    #     format.json
+    #   else
+    #     format.html { redirect_to root_path, notice: 'Stop by an hourly CoWorking location - as low as $4/hour!' }
+    #     format.json { head :no_content }
+    #   end
+    # end
+    
+    # respond_to do |format|
+    #   format.html
+    #   format.json
+    #   format.js
+    #end
   end
 
   # GET /caves/1
