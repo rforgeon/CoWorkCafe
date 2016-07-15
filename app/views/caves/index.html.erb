@@ -6,7 +6,6 @@
 </div>
 
 
-
 <div class="container">
 
 
@@ -19,6 +18,7 @@
         <%= link_to image_tag(cafe.image.url), cafe, :action => "startSpinner" %>
         <div class="caption"> <span>
           <h3><%= cafe.name %></h3>
+          <h4><%= number_to_currency(cafe.rate)%> /hour</h4>
           <p>
             <%@review = Review.where(cafe_id: cafe.id)%>
             <%if @review.blank? %>

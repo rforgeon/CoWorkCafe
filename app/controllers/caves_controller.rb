@@ -6,6 +6,7 @@ class CavesController < InheritedResources::Base
   before_filter :require_user_signed_in, only: [:owner, :new, :edit, :create, :update, :destroy]
   before_filter :check_user, only: [:edit, :update, :destroy]
   before_filter :check_admin, only: [:new]
+  # before_action :flag_newUser
 
   #capacity
   helper_method :totalCurrentSessions
@@ -41,7 +42,7 @@ class CavesController < InheritedResources::Base
     #     format.json { head :no_content }
     #   end
     # end
-    
+
     # respond_to do |format|
     #   format.html
     #   format.json
@@ -163,5 +164,11 @@ private
         end
       end
     end
+
+    # def flag_newUser
+    #   #unless current_user.subscribed
+    #     flash[:notice] = "Stop in for Hourly CoWorking as low as $4/hour!"
+    #   #end
+    # end
 
   end
