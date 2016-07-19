@@ -67,6 +67,23 @@
     height: 102px; /*hight of the spinner gif +2px to fix IE8 issue */
 }
 
+.round-image-50 {
+    background-color: white;
+    border: 0px solid #d9d9d9;
+    border-radius: 37px;
+    -moz-border-radius: 37px;
+    -webkit-border-radius: 37px;
+    height: 75px;
+    width: 75px;
+    overflow: hidden;
+    text-align: center;
+    img { width: 100% }
+}
+
+.pad-11 {
+  padding-left: 11px;
+}
+
 ////////////////////////////////////////////
 /* Absolute Center Spinner */
 .loading {

@@ -15,6 +15,9 @@ class User < ActiveRecord::Base
   has_many :caves
   has_many :customers, class_name: "Session", foreign_key: "seller_id"
   has_many :mysessions, class_name: "Session", foreign_key: "buyer_id"
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "https://dl.dropboxusercontent.com/s/v5sjdcrg107sxfq/userNoImage.png?dl=0"
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  #fix image sizes with http://www.peoplecancode.com/tutorials/users-avatars-uploading-images-using-paperclip
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(provider: auth.provider, uid: auth.uid).first

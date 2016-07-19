@@ -192,6 +192,8 @@
     <% @reviews.each do |review| %>
       <tr>
         <td>
+          <div class="round-image-50"><%= image_tag(review.user.avatar.url(:thumb)) %></div>
+          <div class="pad-11">
           <h4>
               <%= "#{review.user.name}" %>
           </h4>
@@ -202,10 +204,12 @@
                   <%= link_to "Delete", cafe_review_path(@cafe, review), method: :delete %>
                 <% end %>
               <% end %>
+          </div>
           </td>
         <td>
         <div class = "form-style">
           <div class="star-rating" data-score= <%= review.rating %> ></div>
+          <br>
           <p><%= h(review.comment).gsub(/\n/, '<br/>').html_safe %></p>
         </div>
       </td>
@@ -218,6 +222,8 @@
 
 </div><!--END Large container for reviews table-->
 
+<br>
+<br>
 
 
 <script>
