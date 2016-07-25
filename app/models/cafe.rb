@@ -14,7 +14,7 @@ class Cafe < ActiveRecord::Base
                     :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
                     :path => ":style/:id_:filename"
 
-  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"], size: { in: 0..1000.kilobytes }
   end
 
   validates :name, :description, :address, :city, :state, presence: true
