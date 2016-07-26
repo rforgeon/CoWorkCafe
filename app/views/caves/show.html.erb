@@ -44,7 +44,7 @@
       <%if totalCurrentSessions <= 0%>
         <%= link_to "Location Full - Call location to open space", @cafe, class: "btn btn-primary" %>
       <%else%>
-        <%= link_to "Start Session", new_cafe_session_path(@cafe), class: "btn btn-primary" %>
+        <%= link_to "Start Session", new_cafe_session_path(@cafe), class: "btn btn-custom btn-lg" %>
       <%end%>
     </div>
     <br>

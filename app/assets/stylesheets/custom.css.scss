@@ -10,7 +10,7 @@
 .home-banner{
   text: bold;
   text-align:center;
-  color: #A8A8A8 
+  color: #A8A8A8
 }
 
 .thumbnail.thumbnail {
@@ -293,6 +293,33 @@
 
 }
 
+.btn.btn-success.active.focus, .btn-success.active:focus, .btn-success.active:hover, .btn-success:active.focus, .btn-success:active:focus, .btn-success:active:hover, .open>.dropdown-toggle.btn-success.focus, .open>.dropdown-toggle.btn-success:focus, .open>.dropdown-toggle.btn-success:hover {
+  color: #FFFFFF;
+  background-color: #B00000;
+  border-color: #B00000;
+
+}
+///////
+
+.btn.btn-custom {
+  color: white;
+  background-color: #D80000;
+  border-color: #D80000;
+}
+
+.btn.btn-custom:hover, .btn-custom:focus, .btn-custom:active, .btn-custom.active, .open > .dropdown-toggle.btn-custom {
+  color: #FFFFFF;
+  background-color: #B00000;
+  border-color: #B00000;
+}
+
+.btn-custom:active, .btn-custom.active {
+  color: #FFFFFF;
+  background-color: #B00000;
+  border-color: #B00000;
+}
+///////
+
 .btn.btn-default{
 }
 
@@ -303,140 +330,4 @@ color: #3366FF;
 .btn.btn-link:hover{
 color: #006666;
 
-}
-
-.sk-fading-circle {
-  margin: 100px auto;
-  width: 40px;
-  height: 40px;
-  position: relative;
-}
-
-.sk-fading-circle .sk-circle {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
-.sk-fading-circle .sk-circle:before {
-  content: '';
-  display: block;
-  margin: 0 auto;
-  width: 15%;
-  height: 15%;
-  background-color: #333;
-  border-radius: 100%;
-  -webkit-animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
-          animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
-}
-.sk-fading-circle .sk-circle2 {
-  -webkit-transform: rotate(30deg);
-      -ms-transform: rotate(30deg);
-          transform: rotate(30deg);
-}
-.sk-fading-circle .sk-circle3 {
-  -webkit-transform: rotate(60deg);
-      -ms-transform: rotate(60deg);
-          transform: rotate(60deg);
-}
-.sk-fading-circle .sk-circle4 {
-  -webkit-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-          transform: rotate(90deg);
-}
-.sk-fading-circle .sk-circle5 {
-  -webkit-transform: rotate(120deg);
-      -ms-transform: rotate(120deg);
-          transform: rotate(120deg);
-}
-.sk-fading-circle .sk-circle6 {
-  -webkit-transform: rotate(150deg);
-      -ms-transform: rotate(150deg);
-          transform: rotate(150deg);
-}
-.sk-fading-circle .sk-circle7 {
-  -webkit-transform: rotate(180deg);
-      -ms-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-.sk-fading-circle .sk-circle8 {
-  -webkit-transform: rotate(210deg);
-      -ms-transform: rotate(210deg);
-          transform: rotate(210deg);
-}
-.sk-fading-circle .sk-circle9 {
-  -webkit-transform: rotate(240deg);
-      -ms-transform: rotate(240deg);
-          transform: rotate(240deg);
-}
-.sk-fading-circle .sk-circle10 {
-  -webkit-transform: rotate(270deg);
-      -ms-transform: rotate(270deg);
-          transform: rotate(270deg);
-}
-.sk-fading-circle .sk-circle11 {
-  -webkit-transform: rotate(300deg);
-      -ms-transform: rotate(300deg);
-          transform: rotate(300deg);
-}
-.sk-fading-circle .sk-circle12 {
-  -webkit-transform: rotate(330deg);
-      -ms-transform: rotate(330deg);
-          transform: rotate(330deg);
-}
-.sk-fading-circle .sk-circle2:before {
-  -webkit-animation-delay: -1.1s;
-          animation-delay: -1.1s;
-}
-.sk-fading-circle .sk-circle3:before {
-  -webkit-animation-delay: -1s;
-          animation-delay: -1s;
-}
-.sk-fading-circle .sk-circle4:before {
-  -webkit-animation-delay: -0.9s;
-          animation-delay: -0.9s;
-}
-.sk-fading-circle .sk-circle5:before {
-  -webkit-animation-delay: -0.8s;
-          animation-delay: -0.8s;
-}
-.sk-fading-circle .sk-circle6:before {
-  -webkit-animation-delay: -0.7s;
-          animation-delay: -0.7s;
-}
-.sk-fading-circle .sk-circle7:before {
-  -webkit-animation-delay: -0.6s;
-          animation-delay: -0.6s;
-}
-.sk-fading-circle .sk-circle8:before {
-  -webkit-animation-delay: -0.5s;
-          animation-delay: -0.5s;
-}
-.sk-fading-circle .sk-circle9:before {
-  -webkit-animation-delay: -0.4s;
-          animation-delay: -0.4s;
-}
-.sk-fading-circle .sk-circle10:before {
-  -webkit-animation-delay: -0.3s;
-          animation-delay: -0.3s;
-}
-.sk-fading-circle .sk-circle11:before {
-  -webkit-animation-delay: -0.2s;
-          animation-delay: -0.2s;
-}
-.sk-fading-circle .sk-circle12:before {
-  -webkit-animation-delay: -0.1s;
-          animation-delay: -0.1s;
-}
-
-@-webkit-keyframes sk-circleFadeDelay {
-  0%, 39%, 100% { opacity: 0; }
-  40% { opacity: 1; }
-}
-
-@keyframes sk-circleFadeDelay {
-  0%, 39%, 100% { opacity: 0; }
-  40% { opacity: 1; }
 }
