@@ -4,12 +4,9 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Your Sessoin has been created!</h1>
+    <h1>Your Session has been created!</h1>
 
-    <!-- <div class="thumbnail">
-      <img alt="" src="https://www.nativenomadic.com/assets/<%=@cafe.image%>" >
-    </div> -->
-     <br>
+     <div> <%=image_tag attachments['cafeImage.jpg'].url%> </div>
      <br>
      <h2><%= @cafe.name %></h2>
      <p><%= @cafe.address %><br>
@@ -33,5 +30,10 @@
       <%=@cafe.checkin%>
     </p>
     <h3>Thanks for coming in and have a great, productive day!</h3>
+
+    <br>
+    <p>
+      Attachements---------------------
+    </p>
   </body>
 </html>

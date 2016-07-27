@@ -4,7 +4,9 @@
   <div class="col-md-6"> -->
     <br>
     <div class="thumbnail">
+
       <%= image_tag @cafe.image.url %>
+      
 
       <div class="wrapper">
    <div class="caption post-content">
@@ -20,6 +22,7 @@
            </div>
        </div>
     </div>
+
 
     <div class="wrapper2">
     <div class="star-rating" data-score= <%= @avg_rating %> ></div>
@@ -45,6 +48,7 @@
         <%= link_to "Location Full - Call location to open space", @cafe, class: "btn btn-primary" %>
       <%else%>
         <%= link_to "Start Session", new_cafe_session_path(@cafe), class: "btn btn-custom btn-lg" %>
+        <p class="light-italic">...select your hours and complete purchase</p>
       <%end%>
     </div>
     <br>
@@ -133,7 +137,7 @@
   <div id="links">
     <% @images.each do |photo|%>
       <a href="<%= photo.cafephoto.url%>"  data-gallery>
-          <img src="<%= photo.cafephoto.url(:thumb)%>"
+          <img src="<%= photo.cafephoto.url(:thumb)%>">
       </a>
     <%end%>
   </div>

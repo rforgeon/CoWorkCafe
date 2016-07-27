@@ -4,11 +4,9 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>A new Sessoin has been created!</h1>
+    <h1>A new Session has been created!</h1>
 
-    <!-- <div class="thumbnail">
-      <img alt="" src="https://www.nativenomadic.com/assets/<%=@cafe.image%>" >
-    </div> -->
+    <div> <%=image_tag attachments['cafeImage.jpg'].url%> </div>
      <br>
 
      <h2><%= @cafe.name %></h2>
@@ -19,8 +17,10 @@
      </p>
 
      <h2>User</h2>
+     <div class="round-image-50"> <%=image_tag attachments['userImage.jpg'].url%> </div>
      <%=@user.name%>
      <%=@user.email%>
+
 
     <h3>
       Session duration:<br>
@@ -30,6 +30,12 @@
     </p>
     <p>
       End Time: <%=@session_finish.strftime("%m/%d %l:%M%p")%>
+    </p>
+
+    <br>
+
+    <p>
+      Attachements---------------------
     </p>
 
   </body>
