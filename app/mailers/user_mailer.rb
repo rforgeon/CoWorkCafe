@@ -20,7 +20,7 @@ class UserMailer < ActionMailer::Base
    @user = user
    @session_start = session_s
    @session_finish = session_f
-   attachments['cafeImage.jpg'] = File.read(@cafe.image.path(:medium))
+   #attachments['cafeImage.jpg'] = File.read(@cafe.image.path(:medium))
    @url  = 'https://www.nativenomadic.com/'
    mail(to: @user.email, subject: 'Your native|Nomadic Session')
   end
@@ -32,7 +32,7 @@ class UserMailer < ActionMailer::Base
    @session_start = session_s
    @session_finish = session_f
    attachments['userImage.jpg'] = File.read(@user.avatar.path(:medium))
-   attachments['cafeImage.jpg'] = File.read(@cafe.image.path(:medium))
+   #attachments['cafeImage.jpg'] = File.read(@cafe.image.path(:medium))
    @url  = 'https://www.nativenomadic.com/'
    mail(to: @seller.email, subject: 'New native|Nomadic Session')
   end
