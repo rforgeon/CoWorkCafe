@@ -105,8 +105,8 @@ class SessionsController < InheritedResources::Base
     respond_to do |format|
       if @session.save
         #send confirmation emails w/ UserMailer
-        UserMailer.session_created_email(current_user,@cafe,@session.start,@session.finish).deliver
-        UserMailer.session_created_owner_email(current_user,@cafe,@session.start,@session.finish,@seller).deliver
+        #UserMailer.session_created_email(current_user,@cafe,@session.start,@session.finish).deliver
+        #UserMailer.session_created_owner_email(current_user,@cafe,@session.start,@session.finish,@seller).deliver
         format.html { redirect_to @cafe, notice: 'Session was successfully created.' }
         format.json { render :show, status: :created, location: @session }
       else
