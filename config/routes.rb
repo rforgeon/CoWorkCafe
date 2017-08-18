@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get 'pages/pricing'
   get 'mycafes' => "caves#mycafes"
   get 'customers' => "sessions#customers"
-  get 'mysessions' => "sessions#mysessions"
+  get 'mysessions' => "sessions#mysessions" 
 
   resources :owners
 
